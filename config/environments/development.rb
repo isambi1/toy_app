@@ -63,3 +63,11 @@ end
 Rails.application.configure do
   config.hosts << "toy-app.myshopify.io"
 end
+Monorail.configure do |config|
+  config.registry = Monorail::FileRegistry
+  config.producer = Monorail::Producers::MemoryProducer
+end
+
+Rails.application.configure do
+  config.web_console.whitelisted_ips = "192.168.64.0/24"
+end
